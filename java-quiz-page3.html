@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeetCode 150 Java Syntax Quiz - Page 3</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f6fb; color: #1f2937; }
+    .wrap { max-width: 980px; margin: 24px auto; padding: 0 16px 40px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08); padding: 22px; }
+    h1 { margin: 0 0 8px; }
+    .meta { color: #4b5563; margin-bottom: 16px; }
+    .q { border-top: 1px solid #e5e7eb; padding: 14px 10px 0; margin-top: 14px; border-radius: 8px; }
+    .q:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+    .q:nth-of-type(even) { background: #fff7b8; }
+    .title { font-weight: 700; margin-bottom: 6px; }
+    .sub { color: #374151; font-size: .95rem; margin-bottom: 8px; }
+    .opt { display: block; margin: 6px 0; cursor: pointer; padding: 6px 8px; border-radius: 6px; border: 1px solid transparent; }
+    .opt.user-selected { border-color: #2563eb; background: #eaf1ff; }
+    .opt.correct { border-color: #16a34a; background: #e8f8ee; }
+    .opt.user-selected.correct { border-color: #7c3aed; background: linear-gradient(90deg, #eaf1ff, #e8f8ee); }
+    .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+    button, a.btn { border: 0; border-radius: 8px; padding: 10px 14px; font-size: 1rem; text-decoration: none; cursor: pointer; }
+    button { background: #2563eb; color: #fff; }
+    a.btn { background: #111827; color: #fff; }
+    #result { margin-top: 14px; font-weight: 700; }
+    .legend { margin: 8px 0 0; font-size: .92rem; color: #374151; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>NeetCode 150 Java Syntax Quiz - Page 3</h1>
+      <p class="meta">10 questions | Multi-correct allowed | Stack + Linked List.</p>
+      <p class="legend">Blue = your selection, Green = correct answer, Purple blend = both.</p>
+
+      <form id="quizForm">
+        <div class="q">
+          <div class="title">20) Valid Parentheses (Deque as stack)</div>
+          <div class="sub">Stack</div>
+          <label class="opt"><input type="checkbox" name="q1" value="a"> <code>Deque&lt;Character&gt; st = new ArrayDeque&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="b"> <code>st.push('(');</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="c"> <code>st.peek()</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="d"> <code>st.pop()</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="e"> <code>st.put('(')</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">21) Min Stack</div>
+          <div class="sub">Stack</div>
+          <label class="opt"><input type="checkbox" name="q2" value="a"> <code>st.push(x)</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="b"> <code>st.pop()</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="c"> <code>st.peek()</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="d"> <code>st.getMin()</code> (custom method in your class)</label>
+          <label class="opt"><input type="checkbox" name="q2" value="e"> <code>st.addFirst(x)</code> (if using deque style)</label>
+        </div>
+
+        <div class="q">
+          <div class="title">22) Evaluate Reverse Polish Notation</div>
+          <div class="sub">Stack + String parsing</div>
+          <label class="opt"><input type="checkbox" name="q3" value="a"> <code>Integer.parseInt(token)</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="b"> <code>st.push(num)</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="c"> <code>st.pop()</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="d"> <code>token.equals("+")</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="e"> <code>token == "+"</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">23) Generate Parentheses</div>
+          <div class="sub">Backtracking + StringBuilder</div>
+          <label class="opt"><input type="checkbox" name="q4" value="a"> <code>ArrayList&lt;String&gt; ans = new ArrayList&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="b"> <code>StringBuilder sb = new StringBuilder();</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="c"> <code>sb.append('(')</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="d"> <code>sb.deleteCharAt(sb.length() - 1)</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="e"> <code>sb.removeLast()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">24) Daily Temperatures</div>
+          <div class="sub">Monotonic stack of indices</div>
+          <label class="opt"><input type="checkbox" name="q5" value="a"> <code>int[] ans = new int[temps.length];</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="b"> <code>Deque&lt;Integer&gt; st = new ArrayDeque&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="c"> <code>st.peek()</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="d"> <code>st.push(i)</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="e"> <code>temps.size()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">25) Car Fleet</div>
+          <div class="sub">Arrays + stack-like pass</div>
+          <label class="opt"><input type="checkbox" name="q6" value="a"> <code>double t = (double)(target - pos[i]) / speed[i];</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="b"> <code>Arrays.sort(pairs, (a,b) -&gt; Integer.compare(a[0], b[0]));</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="c"> <code>Stack&lt;Double&gt; st = new Stack&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="d"> <code>st.push(time)</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="e"> <code>pairs.length()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">26) Largest Rectangle in Histogram</div>
+          <div class="sub">Monotonic stack</div>
+          <label class="opt"><input type="checkbox" name="q7" value="a"> <code>Deque&lt;Integer&gt; st = new ArrayDeque&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="b"> <code>st.push(i)</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="c"> <code>st.pop()</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="d"> <code>Math.max(best, area)</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="e"> <code>heights.size()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">27) Reverse Linked List</div>
+          <div class="sub">Linked List</div>
+          <label class="opt"><input type="checkbox" name="q8" value="a"> <code>ListNode prev = null, cur = head;</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="b"> <code>ListNode nxt = cur.next;</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="c"> <code>cur.next = prev;</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="d"> <code>head.length</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="e"> <code>return prev;</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">28) Merge Two Sorted Lists</div>
+          <div class="sub">Linked List</div>
+          <label class="opt"><input type="checkbox" name="q9" value="a"> <code>ListNode dummy = new ListNode(0);</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="b"> <code>ListNode tail = dummy;</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="c"> <code>tail.next = l1;</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="d"> <code>tail = tail.next;</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="e"> <code>l1.size()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">29) Reorder List</div>
+          <div class="sub">Linked List</div>
+          <label class="opt"><input type="checkbox" name="q10" value="a"> <code>ListNode slow = head, fast = head;</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="b"> <code>while (fast != null &amp;&amp; fast.next != null) { slow = slow.next; fast = fast.next.next; }</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="c"> <code>ListNode second = reverse(slow.next);</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="d"> <code>first.next = second;</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="e"> <code>head.add(second)</code></label>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="submitBtn">Submit Page 3</button>
+          <a class="btn" href="java-quiz-page2.html">Back to Page 2</a>
+          <a class="btn" href="java-quiz-page4.html">Go to Page 4</a>
+          <a class="btn" href="index.html">Back to Home</a>
+        </div>
+      </form>
+
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <script>
+    const answerKey = {
+      q1: ["a", "b", "c", "d"],
+      q2: ["a", "b", "c", "d", "e"],
+      q3: ["a", "b", "c", "d"],
+      q4: ["a", "b", "c", "d"],
+      q5: ["a", "b", "c", "d"],
+      q6: ["a", "b", "c", "d"],
+      q7: ["a", "b", "c", "d"],
+      q8: ["a", "b", "c", "e"],
+      q9: ["a", "b", "c", "d"],
+      q10: ["a", "b", "c", "d"]
+    };
+
+    function selectedValues(name) {
+      return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value).sort();
+    }
+    function isExactMatch(a, b) {
+      if (a.length !== b.length) return false;
+      for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+      return true;
+    }
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      let score = 0, attempted = 0;
+      for (const q in answerKey) {
+        const sel = selectedValues(q);
+        if (sel.length > 0) attempted++;
+        if (isExactMatch(sel, [...answerKey[q]].sort())) score++;
+        const inputs = document.querySelectorAll(`input[name="${q}"]`);
+        inputs.forEach((input) => {
+          const opt = input.closest(".opt");
+          opt.classList.remove("user-selected", "correct");
+          if (input.checked) opt.classList.add("user-selected");
+          if (answerKey[q].includes(input.value)) opt.classList.add("correct");
+        });
+      }
+      document.getElementById("result").textContent = `Score: ${score}/10 (exact-match scoring). Attempted: ${attempted}/10`;
+    });
+
+    document.querySelectorAll(".q").forEach((block) => {
+      const title = block.querySelector(".title");
+      const m = title && title.textContent.match(/^(\d+)\)/);
+      if (m) block.id = `q-${m[1]}`;
+    });
+    if (location.hash.startsWith("#q-")) {
+      const target = document.querySelector(location.hash);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  </script>
+</body>
+</html>

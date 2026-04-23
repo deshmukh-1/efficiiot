@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeetCode 150 Java Syntax Quiz - Page 5</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f6fb; color: #1f2937; }
+    .wrap { max-width: 980px; margin: 24px auto; padding: 0 16px 40px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08); padding: 22px; }
+    h1 { margin: 0 0 8px; }
+    .meta { color: #4b5563; margin-bottom: 16px; }
+    .q { border-top: 1px solid #e5e7eb; padding: 14px 10px 0; margin-top: 14px; border-radius: 8px; }
+    .q:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+    .q:nth-of-type(even) { background: #fff7b8; }
+    .title { font-weight: 700; margin-bottom: 6px; }
+    .sub { color: #374151; font-size: .95rem; margin-bottom: 8px; }
+    .opt { display: block; margin: 6px 0; cursor: pointer; padding: 6px 8px; border-radius: 6px; border: 1px solid transparent; }
+    .opt.user-selected { border-color: #2563eb; background: #eaf1ff; }
+    .opt.correct { border-color: #16a34a; background: #e8f8ee; }
+    .opt.user-selected.correct { border-color: #7c3aed; background: linear-gradient(90deg, #eaf1ff, #e8f8ee); }
+    .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+    button, a.btn { border: 0; border-radius: 8px; padding: 10px 14px; font-size: 1rem; text-decoration: none; cursor: pointer; }
+    button { background: #2563eb; color: #fff; }
+    a.btn { background: #111827; color: #fff; }
+    #result { margin-top: 14px; font-weight: 700; }
+    .legend { margin: 8px 0 0; font-size: .92rem; color: #374151; }
+  </style>
+</head>
+<body>
+  <div class="wrap"><div class="card">
+    <h1>NeetCode 150 Java Syntax Quiz - Page 5</h1>
+    <p class="meta">10 questions | Multi-correct allowed | Trees.</p>
+    <p class="legend">Blue = your selection, Green = correct answer, Purple blend = both.</p>
+    <form id="quizForm">
+      <div class="q"><div class="title">40) Subtree of Another Tree</div><div class="sub">Trees</div>
+        <label class="opt"><input type="checkbox" name="q1" value="a"> <code>isSameTree(root, subRoot)</code></label>
+        <label class="opt"><input type="checkbox" name="q1" value="b"> <code>isSubtree(root.left, subRoot)</code></label>
+        <label class="opt"><input type="checkbox" name="q1" value="c"> <code>isSubtree(root.right, subRoot)</code></label>
+        <label class="opt"><input type="checkbox" name="q1" value="d"> <code>root.contains(subRoot)</code></label>
+        <label class="opt"><input type="checkbox" name="q1" value="e"> <code>if (root == null) return false;</code></label>
+      </div>
+      <div class="q"><div class="title">41) Lowest Common Ancestor in BST</div><div class="sub">Trees</div>
+        <label class="opt"><input type="checkbox" name="q2" value="a"> <code>if (p.val &lt; root.val &amp;&amp; q.val &lt; root.val) root = root.left;</code></label>
+        <label class="opt"><input type="checkbox" name="q2" value="b"> <code>else if (p.val &gt; root.val &amp;&amp; q.val &gt; root.val) root = root.right;</code></label>
+        <label class="opt"><input type="checkbox" name="q2" value="c"> <code>else return root;</code></label>
+        <label class="opt"><input type="checkbox" name="q2" value="d"> <code>root.parent()</code></label>
+        <label class="opt"><input type="checkbox" name="q2" value="e"> <code>while (root != null) { }</code></label>
+      </div>
+      <div class="q"><div class="title">42) Binary Tree Level Order Traversal</div><div class="sub">Trees + Queue</div>
+        <label class="opt"><input type="checkbox" name="q3" value="a"> <code>Queue&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();</code></label>
+        <label class="opt"><input type="checkbox" name="q3" value="b"> <code>q.offer(root);</code></label>
+        <label class="opt"><input type="checkbox" name="q3" value="c"> <code>TreeNode node = q.poll();</code></label>
+        <label class="opt"><input type="checkbox" name="q3" value="d"> <code>int sz = q.size();</code></label>
+        <label class="opt"><input type="checkbox" name="q3" value="e"> <code>q.push(root)</code></label>
+      </div>
+      <div class="q"><div class="title">43) Binary Tree Right Side View</div><div class="sub">Trees + BFS</div>
+        <label class="opt"><input type="checkbox" name="q4" value="a"> <code>if (i == sz - 1) ans.add(node.val);</code></label>
+        <label class="opt"><input type="checkbox" name="q4" value="b"> <code>ArrayList&lt;Integer&gt; ans = new ArrayList&lt;&gt;();</code></label>
+        <label class="opt"><input type="checkbox" name="q4" value="c"> <code>q.offer(node.left);</code></label>
+        <label class="opt"><input type="checkbox" name="q4" value="d"> <code>q.offer(node.right);</code></label>
+        <label class="opt"><input type="checkbox" name="q4" value="e"> <code>ans.length</code></label>
+      </div>
+      <div class="q"><div class="title">44) Count Good Nodes in Binary Tree</div><div class="sub">Trees + DFS</div>
+        <label class="opt"><input type="checkbox" name="q5" value="a"> <code>dfs(node.left, Math.max(maxSoFar, node.val))</code></label>
+        <label class="opt"><input type="checkbox" name="q5" value="b"> <code>dfs(node.right, Math.max(maxSoFar, node.val))</code></label>
+        <label class="opt"><input type="checkbox" name="q5" value="c"> <code>if (node.val &gt;= maxSoFar) count++;</code></label>
+        <label class="opt"><input type="checkbox" name="q5" value="d"> <code>node.size()</code></label>
+        <label class="opt"><input type="checkbox" name="q5" value="e"> <code>if (node == null) return;</code></label>
+      </div>
+      <div class="q"><div class="title">45) Validate Binary Search Tree</div><div class="sub">Trees</div>
+        <label class="opt"><input type="checkbox" name="q6" value="a"> <code>boolean valid(TreeNode node, long low, long high)</code></label>
+        <label class="opt"><input type="checkbox" name="q6" value="b"> <code>if (node.val &lt;= low || node.val &gt;= high) return false;</code></label>
+        <label class="opt"><input type="checkbox" name="q6" value="c"> <code>return valid(node.left, low, node.val) &amp;&amp; valid(node.right, node.val, high);</code></label>
+        <label class="opt"><input type="checkbox" name="q6" value="d"> <code>node.left.val &lt; node.val &lt; node.right.val</code> is sufficient always</label>
+        <label class="opt"><input type="checkbox" name="q6" value="e"> <code>if (node == null) return true;</code></label>
+      </div>
+      <div class="q"><div class="title">46) Kth Smallest Element in BST</div><div class="sub">Trees + Stack</div>
+        <label class="opt"><input type="checkbox" name="q7" value="a"> <code>Deque&lt;TreeNode&gt; st = new ArrayDeque&lt;&gt;();</code></label>
+        <label class="opt"><input type="checkbox" name="q7" value="b"> <code>while (cur != null) { st.push(cur); cur = cur.left; }</code></label>
+        <label class="opt"><input type="checkbox" name="q7" value="c"> <code>cur = st.pop();</code></label>
+        <label class="opt"><input type="checkbox" name="q7" value="d"> <code>k--; if (k == 0) return cur.val;</code></label>
+        <label class="opt"><input type="checkbox" name="q7" value="e"> <code>st.add(key, node)</code></label>
+      </div>
+      <div class="q"><div class="title">47) Construct Binary Tree from Preorder and Inorder Traversal</div><div class="sub">Trees + HashMap</div>
+        <label class="opt"><input type="checkbox" name="q8" value="a"> <code>HashMap&lt;Integer, Integer&gt; idx = new HashMap&lt;&gt;();</code></label>
+        <label class="opt"><input type="checkbox" name="q8" value="b"> <code>idx.put(inorder[i], i);</code></label>
+        <label class="opt"><input type="checkbox" name="q8" value="c"> <code>TreeNode root = new TreeNode(preorder[preL]);</code></label>
+        <label class="opt"><input type="checkbox" name="q8" value="d"> <code>int mid = idx.get(root.val);</code></label>
+        <label class="opt"><input type="checkbox" name="q8" value="e"> <code>idx.contains(root.val)</code></label>
+      </div>
+      <div class="q"><div class="title">48) Binary Tree Maximum Path Sum</div><div class="sub">Trees + DFS</div>
+        <label class="opt"><input type="checkbox" name="q9" value="a"> <code>int left = Math.max(0, dfs(node.left));</code></label>
+        <label class="opt"><input type="checkbox" name="q9" value="b"> <code>int right = Math.max(0, dfs(node.right));</code></label>
+        <label class="opt"><input type="checkbox" name="q9" value="c"> <code>best = Math.max(best, node.val + left + right);</code></label>
+        <label class="opt"><input type="checkbox" name="q9" value="d"> <code>return node.val + Math.max(left, right);</code></label>
+        <label class="opt"><input type="checkbox" name="q9" value="e"> <code>node.sum()</code></label>
+      </div>
+      <div class="q"><div class="title">49) Serialize and Deserialize Binary Tree</div><div class="sub">Trees + StringBuilder + Queue</div>
+        <label class="opt"><input type="checkbox" name="q10" value="a"> <code>StringBuilder sb = new StringBuilder();</code></label>
+        <label class="opt"><input type="checkbox" name="q10" value="b"> <code>sb.append("null,");</code></label>
+        <label class="opt"><input type="checkbox" name="q10" value="c"> <code>String[] arr = data.split(",");</code></label>
+        <label class="opt"><input type="checkbox" name="q10" value="d"> <code>Queue&lt;String&gt; q = new LinkedList&lt;&gt;(Arrays.asList(arr));</code></label>
+        <label class="opt"><input type="checkbox" name="q10" value="e"> <code>sb.push("1")</code></label>
+      </div>
+      <div class="actions">
+        <button type="button" id="submitBtn">Submit Page 5</button>
+        <a class="btn" href="java-quiz-page4.html">Back to Page 4</a>
+        <a class="btn" href="java-quiz-page6.html">Go to Page 6 (50+)</a>
+        <a class="btn" href="index.html">Back to Home</a>
+      </div>
+    </form>
+    <p id="result"></p>
+  </div></div>
+  <script>
+    const answerKey = {
+      q1: ["a","b","c","e"],
+      q2: ["a","b","c","e"],
+      q3: ["a","b","c","d"],
+      q4: ["a","b","c","d"],
+      q5: ["a","b","c","e"],
+      q6: ["a","b","c","e"],
+      q7: ["a","b","c","d"],
+      q8: ["a","b","c","d"],
+      q9: ["a","b","c","d"],
+      q10: ["a","b","c","d"]
+    };
+    function selectedValues(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i=>i.value).sort();}
+    function isExactMatch(a,b){if(a.length!==b.length) return false; for(let i=0;i<a.length;i++) if(a[i]!==b[i]) return false; return true;}
+    document.getElementById("submitBtn").addEventListener("click", function(){
+      let score=0, attempted=0;
+      for(const q in answerKey){
+        const sel=selectedValues(q); if(sel.length>0) attempted++; if(isExactMatch(sel,[...answerKey[q]].sort())) score++;
+        const inputs=document.querySelectorAll(`input[name="${q}"]`);
+        inputs.forEach((input)=>{const opt=input.closest(".opt"); opt.classList.remove("user-selected","correct"); if(input.checked) opt.classList.add("user-selected"); if(answerKey[q].includes(input.value)) opt.classList.add("correct");});
+      }
+      document.getElementById("result").textContent=`Score: ${score}/10 (exact-match scoring). Attempted: ${attempted}/10`;
+    });
+    document.querySelectorAll(".q").forEach((block) => {
+      const title = block.querySelector(".title");
+      const m = title && title.textContent.match(/^(\d+)\)/);
+      if (m) block.id = `q-${m[1]}`;
+    });
+    if (location.hash.startsWith("#q-")) {
+      const target = document.querySelector(location.hash);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  </script>
+</body>
+</html>

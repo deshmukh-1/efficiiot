@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeetCode 150 Java Syntax Quiz - Pages 6 to 16</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f6fb; color: #1f2937; }
+    .wrap { max-width: 980px; margin: 24px auto; padding: 0 16px 40px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08); padding: 22px; }
+    h1 { margin: 0 0 8px; }
+    .meta { color: #4b5563; margin-bottom: 8px; }
+    .legend { margin: 8px 0 0; font-size: .92rem; color: #374151; }
+    .q { border-top: 1px solid #e5e7eb; padding: 14px 10px 0; margin-top: 14px; border-radius: 8px; }
+    .q:nth-of-type(even) { background: #fff7b8; }
+    .title { font-weight: 700; margin-bottom: 6px; }
+    .sub { color: #374151; font-size: .95rem; margin-bottom: 8px; }
+    .opt { display: block; margin: 6px 0; cursor: pointer; padding: 6px 8px; border-radius: 6px; border: 1px solid transparent; }
+    .opt.user-selected { border-color: #2563eb; background: #eaf1ff; }
+    .opt.correct { border-color: #16a34a; background: #e8f8ee; }
+    .opt.user-selected.correct { border-color: #7c3aed; background: linear-gradient(90deg, #eaf1ff, #e8f8ee); }
+    .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+    button, a.btn { border: 0; border-radius: 8px; padding: 10px 14px; font-size: 1rem; text-decoration: none; cursor: pointer; }
+    button { background: #2563eb; color: #fff; }
+    a.btn { background: #111827; color: #fff; display: inline-block; }
+    #result { margin-top: 14px; font-weight: 700; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>NeetCode 150 Java Syntax Quiz - 50 to 150</h1>
+      <p class="meta">Shows 10 questions at a time (virtual pages 6 to 16). Syntax-focused multi-correct format.</p>
+      <p class="legend">Blue = your selection, Green = correct answer, Purple blend = both.</p>
+      <div id="quizContainer"></div>
+      <div class="actions">
+        <button type="button" id="prevBtn">Previous 10</button>
+        <button type="button" id="submitBtn">Submit Current 10</button>
+        <button type="button" id="nextBtn">Next 10</button>
+        <a class="btn" href="java-quiz-page5.html">Back to Page 5</a>
+        <a class="btn" href="index.html">Back to Home</a>
+      </div>
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <script>
+    const allQuestions = [
+      ["Heap","Kth Largest Element in a Stream"],["Heap","Last Stone Weight"],["Heap","K Closest Points to Origin"],["Heap","Kth Largest Element in an Array"],["Heap","Task Scheduler"],["Heap","Design Twitter"],["Heap","Find Median from Data Stream"],
+      ["Binary Search","Binary Search"],["Binary Search","Search a 2D Matrix"],["Binary Search","Koko Eating Bananas"],["Binary Search","Find Minimum in Rotated Sorted Array"],["Binary Search","Search in Rotated Sorted Array"],["Binary Search","Time Based Key Value Store"],["Binary Search","Median of Two Sorted Arrays"],
+      ["Backtracking","Subsets"],["Backtracking","Combination Sum"],["Backtracking","Permutations"],["Backtracking","Subsets II"],["Backtracking","Combination Sum II"],["Backtracking","Word Search"],["Backtracking","Palindrome Partitioning"],["Backtracking","Letter Combinations of a Phone Number"],["Backtracking","N-Queens"],
+      ["Greedy","Maximum Subarray"],["Greedy","Jump Game"],["Greedy","Jump Game II"],["Greedy","Gas Station"],["Greedy","Hand of Straights"],["Greedy","Merge Triplets to Form Target Triplet"],["Greedy","Partition Labels"],["Greedy","Valid Parenthesis String"],
+      ["Advanced Graphs","Reconstruct Itinerary"],["Advanced Graphs","Min Cost to Connect All Points"],["Advanced Graphs","Network Delay Time"],["Advanced Graphs","Swim in Rising Water"],["Advanced Graphs","Alien Dictionary"],["Advanced Graphs","Cheapest Flights Within K Stops"],
+      ["Graphs","Number of Islands"],["Graphs","Clone Graph"],["Graphs","Max Area of Island"],["Graphs","Pacific Atlantic Water Flow"],["Graphs","Surrounded Regions"],["Graphs","Rotting Oranges"],["Graphs","Walls and Gates"],["Graphs","Course Schedule"],["Graphs","Course Schedule II"],["Graphs","Redundant Connection"],["Graphs","Word Ladder"],
+      ["1-D DP","Climbing Stairs"],["1-D DP","Min Cost Climbing Stairs"],["1-D DP","House Robber"],["1-D DP","House Robber II"],["1-D DP","Longest Palindromic Substring"],["1-D DP","Palindromic Substrings"],["1-D DP","Decode Ways"],["1-D DP","Coin Change"],["1-D DP","Maximum Product Subarray"],["1-D DP","Word Break"],["1-D DP","Longest Increasing Subsequence"],["1-D DP","Partition Equal Subset Sum"],
+      ["2-D DP","Unique Paths"],["2-D DP","Longest Common Subsequence"],["2-D DP","Best Time to Buy and Sell Stock with Cooldown"],["2-D DP","Coin Change II"],["2-D DP","Target Sum"],["2-D DP","Interleaving String"],["2-D DP","Longest Increasing Path in Matrix"],["2-D DP","Distinct Subsequences"],["2-D DP","Edit Distance"],["2-D DP","Burst Balloons"],["2-D DP","Regular Expression Matching"],
+      ["Bit Manipulation","Single Number"],["Bit Manipulation","Number of 1 Bits"],["Bit Manipulation","Counting Bits"],["Bit Manipulation","Reverse Bits"],["Bit Manipulation","Missing Number"],["Bit Manipulation","Sum of Two Integers"],["Bit Manipulation","Reverse Integer"],
+      ["Math & Geometry","Rotate Image"],["Math & Geometry","Spiral Matrix"],["Math & Geometry","Set Matrix Zeroes"],["Math & Geometry","Happy Number"],["Math & Geometry","Plus One"],["Math & Geometry","Pow(x, n)"],["Math & Geometry","Multiply Strings"],["Math & Geometry","Detect Squares"],
+      ["Intervals","Insert Interval"],["Intervals","Merge Intervals"],["Intervals","Non-overlapping Intervals"],["Intervals","Meeting Rooms"],["Intervals","Meeting Rooms II"],["Intervals","Minimum Interval to Include Each Query"],["Intervals","Employee Free Time"],
+      ["Mixed / Hard","LRU Cache"],["Mixed / Hard","LFU Cache"],["Mixed / Hard","Largest Island"],["Mixed / Hard","Shortest Path in Binary Matrix"],["Mixed / Hard","Sliding Window Median"],["Mixed / Hard","Minimum Number of Refueling Stops"],["Mixed / Hard","Candy"],["Mixed / Hard","Trapping Rain Water II"]
+    ].map((item, idx) => ({ no: 50 + idx, cat: item[0], title: item[1] }));
+
+    function optionsFor(cat) {
+      if (cat === "Heap") return [
+        ["a","`PriorityQueue<Integer> pq = new PriorityQueue<>();`"],
+        ["b","`pq.offer(x)`"],
+        ["c","`pq.poll()`"],
+        ["d","`pq.size()`"],
+        ["e","`pq.put(x)`"]
+      ];
+      if (cat === "Binary Search") return [
+        ["a","`int l = 0, r = arr.length - 1;`"],
+        ["b","`int mid = l + (r - l) / 2;`"],
+        ["c","`if (arr[mid] == target) return mid;`"],
+        ["d","`l = mid + 1;` or `r = mid - 1;`"],
+        ["e","`arr.size()` for primitive array"]
+      ];
+      if (cat === "Backtracking") return [
+        ["a","`path.add(x)`"],
+        ["b","`path.remove(path.size() - 1)`"],
+        ["c","`ans.add(new ArrayList<>(path))`"],
+        ["d","`dfs(i + 1)`"],
+        ["e","`path.push(x)` on ArrayList"]
+      ];
+      if (cat === "Greedy") return [
+        ["a","`Arrays.sort(arr)`"],
+        ["b","`Math.max(best, cur)`"],
+        ["c","`for (int i = 0; i < n; i++) { }`"],
+        ["d","`if (condition) continue;`"],
+        ["e","`arr.get(i)` on primitive array"]
+      ];
+      if (cat === "Advanced Graphs" || cat === "Graphs") return [
+        ["a","`Map<Integer, List<Integer>> g = new HashMap<>();`"],
+        ["b","`g.computeIfAbsent(u, k -> new ArrayList<>()).add(v);`"],
+        ["c","`Queue<Integer> q = new LinkedList<>();`"],
+        ["d","`boolean[] vis = new boolean[n];`"],
+        ["e","`g.length`"]
+      ];
+      if (cat === "1-D DP") return [
+        ["a","`int[] dp = new int[n + 1];`"],
+        ["b","`Arrays.fill(dp, -1);`"],
+        ["c","`dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);`"],
+        ["d","`return dp[n];`"],
+        ["e","`dp.add(x)`"]
+      ];
+      if (cat === "2-D DP") return [
+        ["a","`int[][] dp = new int[m][n];`"],
+        ["b","`dp[i][j] = dp[i - 1][j] + dp[i][j - 1];`"],
+        ["c","`if (i == 0 || j == 0) { }`"],
+        ["d","`return dp[m - 1][n - 1];`"],
+        ["e","`dp.get(i).get(j)` on primitive matrix"]
+      ];
+      if (cat === "Bit Manipulation") return [
+        ["a","`x & (x - 1)`"],
+        ["b","`n >> 1`"],
+        ["c","`n << 1`"],
+        ["d","`Integer.bitCount(n)`"],
+        ["e","`n.length`"]
+      ];
+      if (cat === "Math & Geometry") return [
+        ["a","`matrix[i][j]`"],
+        ["b","`Math.pow(x, n)`"],
+        ["c","`StringBuilder sb = new StringBuilder();`"],
+        ["d","`int tmp = a; a = b; b = tmp;`"],
+        ["e","`matrix.size()` for primitive matrix"]
+      ];
+      if (cat === "Intervals") return [
+        ["a","`Arrays.sort(intervals, (x, y) -> Integer.compare(x[0], y[0]));`"],
+        ["b","`List<int[]> out = new ArrayList<>();`"],
+        ["c","`out.add(new int[]{s, e});`"],
+        ["d","`out.get(out.size() - 1)[1]`"],
+        ["e","`intervals.add(new int[]{s, e})` for primitive array"]
+      ];
+      return [
+        ["a","`HashMap<Integer, Node> map = new HashMap<>();`"],
+        ["b","`Deque<Integer> dq = new ArrayDeque<>();`"],
+        ["c","`PriorityQueue<Integer> left = new PriorityQueue<>(Collections.reverseOrder());`"],
+        ["d","`PriorityQueue<Integer> right = new PriorityQueue<>();`"],
+        ["e","`cache.length`"]
+      ];
+    }
+
+    const correct = ["a","b","c","d"];
+    let pageIdx = 0; // 0..10 for 101 questions
+    const pageSize = 10;
+
+    function render() {
+      const start = pageIdx * pageSize;
+      const end = Math.min(start + pageSize, allQuestions.length);
+      const slice = allQuestions.slice(start, end);
+      const c = document.getElementById("quizContainer");
+      c.innerHTML = `<p class="meta">Showing questions ${slice[0].no} to ${slice[slice.length - 1].no}</p>`;
+      slice.forEach((q, idx) => {
+        const ops = optionsFor(q.cat).map((o) => `
+          <label class="opt">
+            <input type="checkbox" name="q${q.no}" value="${o[0]}"> ${o[1]}
+          </label>
+        `).join("");
+        c.innerHTML += `
+          <div class="q" id="q-${q.no}">
+            <div class="title">${q.no}) ${q.title}</div>
+            <div class="sub">${q.cat}</div>
+            ${ops}
+          </div>
+        `;
+      });
+      document.getElementById("result").textContent = "";
+      document.getElementById("prevBtn").disabled = pageIdx === 0;
+      document.getElementById("nextBtn").disabled = end >= allQuestions.length;
+      if (location.hash.startsWith("#q-")) {
+        const target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function selectedValues(name) {
+      return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value).sort();
+    }
+    function isExactMatch(a, b) {
+      if (a.length !== b.length) return false;
+      for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+      return true;
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      const start = pageIdx * pageSize;
+      const end = Math.min(start + pageSize, allQuestions.length);
+      const slice = allQuestions.slice(start, end);
+      let score = 0, attempted = 0;
+      slice.forEach((q) => {
+        const sel = selectedValues(`q${q.no}`);
+        if (sel.length > 0) attempted++;
+        if (isExactMatch(sel, [...correct].sort())) score++;
+        const inputs = document.querySelectorAll(`input[name="q${q.no}"]`);
+        inputs.forEach((input) => {
+          const opt = input.closest(".opt");
+          opt.classList.remove("user-selected", "correct");
+          if (input.checked) opt.classList.add("user-selected");
+          if (correct.includes(input.value)) opt.classList.add("correct");
+        });
+      });
+      document.getElementById("result").textContent = `Score: ${score}/${slice.length} (exact-match scoring). Attempted: ${attempted}/${slice.length}`;
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", function () {
+      if (pageIdx > 0) { pageIdx--; render(); }
+    });
+    document.getElementById("nextBtn").addEventListener("click", function () {
+      if ((pageIdx + 1) * pageSize < allQuestions.length) { pageIdx++; render(); }
+    });
+
+    (function initFromQuery() {
+      const params = new URLSearchParams(window.location.search);
+      const q = Number(params.get("q"));
+      if (!Number.isNaN(q) && q >= 50 && q <= 150) {
+        pageIdx = Math.floor((q - 50) / pageSize);
+      }
+    })();
+
+    render();
+  </script>
+</body>
+</html>

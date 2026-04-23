@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeetCode 150 Question Map</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f4f6fb;
+      color: #1f2937;
+    }
+    .wrap {
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 0 16px 40px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+      padding: 26px;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.6rem;
+    }
+    .meta {
+      color: #6b7280;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    @media (min-width: 700px) {
+      ul {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    li { margin: 0; }
+    a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #f9fafb;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    a:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+      transform: translateY(-1px);
+    }
+    a:active {
+      transform: scale(0.98);
+    }
+    a:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+    .top-actions { margin-top: 24px; }
+    .btn {
+      display: inline-block;
+      background: #111827;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+    .btn:hover { background: #1f2937; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>NeetCode 150 Question Map</h1>
+      <p class="meta">Each question links to the page where that question appears in your Java syntax quiz.</p>
+      <div id="listRoot"></div>
+      <div class="top-actions">
+        <a class="btn" href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sections = [
+      {
+        title: "Arrays & Hashing",
+        items: [
+          "Contains Duplicate","Valid Anagram","Two Sum","Group Anagrams","Top K Frequent Elements","Product of Array Except Self","Encode and Decode Strings","Longest Consecutive Sequence"
+        ]
+      },
+      {
+        title: "Two Pointers",
+        items: ["Valid Palindrome","Two Sum II (Input Array Sorted)","3Sum","Container With Most Water","Trapping Rain Water"]
+      },
+      {
+        title: "Sliding Window",
+        items: ["Best Time to Buy and Sell Stock","Longest Substring Without Repeating Characters","Longest Repeating Character Replacement","Permutation in String","Minimum Window Substring","Sliding Window Maximum"]
+      },
+      {
+        title: "Stack",
+        items: ["Valid Parentheses","Min Stack","Evaluate Reverse Polish Notation","Generate Parentheses","Daily Temperatures","Car Fleet","Largest Rectangle in Histogram"]
+      },
+      {
+        title: "Linked List",
+        items: ["Reverse Linked List","Merge Two Sorted Lists","Reorder List","Remove Nth Node From End of List","Copy List With Random Pointer","Add Two Numbers","Linked List Cycle","Find the Duplicate Number"]
+      },
+      {
+        title: "Trees",
+        items: ["Invert Binary Tree","Maximum Depth of Binary Tree","Diameter of Binary Tree","Balanced Binary Tree","Same Tree","Subtree of Another Tree","Lowest Common Ancestors","Binary Tree Level Order Traversal","Binary Tree Right Side View","Count Good Nodes in Binary Tree","Validate Binary Search Tree","Kth Smallest Element in BST","Construct Binary Tree from Preorder and Inorder Traversal","Binary Tree Maximum Path Sum","Serialize and Deserialize Binary Tree"]
+      },
+      {
+        title: "Heap / Priority Queue",
+        items: ["Kth Largest Element in a Stream","Last Stone Weight","K Closest Points to Origin","Kth Largest Element in an Array","Task Scheduler","Design Twitter","Find Median from Data Stream"]
+      },
+      {
+        title: "Binary Search",
+        items: ["Binary Search","Search a 2D Matrix","Koko Eating Bananas","Find Minimum in Rotated Sorted Array","Search in Rotated Sorted Array","Time Based Key Value Store","Median of Two Sorted Arrays"]
+      },
+      {
+        title: "Backtracking",
+        items: ["Subsets","Combination Sum","Permutations","Subsets II","Combination Sum II","Word Search","Palindrome Partitioning","Letter Combinations of a Phone Number","N-Queens"]
+      },
+      {
+        title: "Greedy",
+        items: ["Maximum Subarray","Jump Game","Jump Game II","Gas Station","Hand of Straights","Merge Triplets to Form Target Triplet","Partition Labels","Valid Parenthesis String"]
+      },
+      {
+        title: "Advanced Graphs",
+        items: ["Reconstruct Itinerary","Min Cost to Connect All Points","Network Delay Time","Swim in Rising Water","Alien Dictionary","Cheapest Flights Within K Stops"]
+      },
+      {
+        title: "Graphs",
+        items: ["Number of Islands","Clone Graph","Max Area of Island","Pacific Atlantic Water Flow","Surrounded Regions","Rotting Oranges","Walls and Gates","Course Schedule","Course Schedule II","Redundant Connection","Word Ladder"]
+      },
+      {
+        title: "1-D Dynamic Programming",
+        items: ["Climbing Stairs","Min Cost Climbing Stairs","House Robber","House Robber II","Longest Palindromic Substring","Palindromic Substrings","Decode Ways","Coin Change","Maximum Product Subarray","Word Break","Longest Increasing Subsequence","Partition Equal Subset Sum"]
+      },
+      {
+        title: "2-D Dynamic Programming",
+        items: ["Unique Paths","Longest Common Subsequence","Best Time to Buy and Sell Stock with Cooldown","Coin Change II","Target Sum","Interleaving String","Longest Increasing Path in Matrix","Distinct Subsequences","Edit Distance","Burst Balloons","Regular Expression Matching"]
+      },
+      {
+        title: "Bit Manipulation",
+        items: ["Single Number","Number of 1 Bits","Counting Bits","Reverse Bits","Missing Number","Sum of Two Integers","Reverse Integer"]
+      },
+      {
+        title: "Math & Geometry",
+        items: ["Rotate Image","Spiral Matrix","Set Matrix Zeroes","Happy Number","Plus One","Pow(x, n)","Multiply Strings","Detect Squares"]
+      },
+      {
+        title: "Extra / Interval Problems",
+        items: ["Insert Interval","Merge Intervals","Non-overlapping Intervals","Meeting Rooms","Meeting Rooms II","Minimum Interval to Include Each Query","Employee Free Time"]
+      },
+      {
+        title: "Remaining (Mixed / Hard)",
+        items: ["LRU Cache","LFU Cache","Largest Island","Shortest Path in Binary Matrix","Sliding Window Median","Minimum Number of Refueling Stops","Candy","Trapping Rain Water II"]
+      }
+    ];
+
+    function linkFor(no) {
+      if (no <= 10) return `java-quiz-page1.html#q-${no}`;
+      if (no <= 19) return `java-quiz-page2.html#q-${no}`;
+      if (no <= 29) return `java-quiz-page3.html#q-${no}`;
+      if (no <= 39) return `java-quiz-page4.html#q-${no}`;
+      if (no <= 49) return `java-quiz-page5.html#q-${no}`;
+      return `java-quiz-page6.html?q=${no}#q-${no}`;
+    }
+
+    const root = document.getElementById("listRoot");
+    let no = 1;
+    sections.forEach((section) => {
+      const h2 = document.createElement("h2");
+      h2.textContent = section.title;
+      root.appendChild(h2);
+
+      const ul = document.createElement("ul");
+      section.items.forEach((name) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = linkFor(no);
+        a.textContent = `${no}. ${name}`;
+        li.appendChild(a);
+        ul.appendChild(li);
+        no++;
+      });
+      root.appendChild(ul);
+    });
+  </script>
+</body>
+</html>

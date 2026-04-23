@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeetCode 150 Java Syntax Quiz - Page 1</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f6fb; color: #1f2937; }
+    .wrap { max-width: 980px; margin: 24px auto; padding: 0 16px 40px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.08); padding: 22px; }
+    h1 { margin: 0 0 8px; }
+    .meta { color: #4b5563; margin-bottom: 16px; }
+    .q { border-top: 1px solid #e5e7eb; padding: 14px 10px 0; margin-top: 14px; border-radius: 8px; }
+    .q:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+    .q:nth-of-type(even) { background: #fff7b8; }
+    .title { font-weight: 700; margin-bottom: 6px; }
+    .sub { color: #374151; font-size: .95rem; margin-bottom: 8px; }
+    .opt { display: block; margin: 6px 0; cursor: pointer; padding: 6px 8px; border-radius: 6px; border: 1px solid transparent; }
+    .opt.user-selected { border-color: #2563eb; background: #eaf1ff; }
+    .opt.correct { border-color: #16a34a; background: #e8f8ee; }
+    .opt.user-selected.correct { border-color: #7c3aed; background: linear-gradient(90deg, #eaf1ff, #e8f8ee); }
+    .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+    button, a.btn { border: 0; border-radius: 8px; padding: 10px 14px; font-size: 1rem; text-decoration: none; cursor: pointer; }
+    button { background: #2563eb; color: #fff; }
+    a.btn { background: #111827; color: #fff; }
+    #result { margin-top: 14px; font-weight: 700; }
+    .legend { margin: 8px 0 0; font-size: .92rem; color: #374151; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>NeetCode 150 Java Syntax Quiz - Page 1</h1>
+      <p class="meta">10 questions | Multi-correct allowed | Select all options that are valid Java syntax for the DS used.</p>
+      <p class="legend">Blue = your selection, Green = correct answer, Purple blend = both.</p>
+
+      <form id="quizForm">
+        <div class="q">
+          <div class="title">1) Contains Duplicate (HashSet)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q1" value="a"> <code>HashSet&lt;Character&gt; set = new HashSet&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="b"> <code>set.contains('r')</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="c"> <code>set.containsKey('D')</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="d"> <code>set.add('b')</code></label>
+          <label class="opt"><input type="checkbox" name="q1" value="e"> <code>set.put('t')</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">2) Valid Anagram (HashMap freq)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q2" value="a"> <code>HashMap&lt;Character, Integer&gt; map = new HashMap&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="b"> <code>map.put(c, map.getOrDefault(c, 0) + 1);</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="c"> <code>map.containsKey(c)</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="d"> <code>map.add(c, 1)</code></label>
+          <label class="opt"><input type="checkbox" name="q2" value="e"> <code>map[c]++</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">3) Two Sum (HashMap value -&gt; index)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q3" value="a"> <code>HashMap&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="b"> <code>int comp = target - nums[i];</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="c"> <code>if (map.containsKey(comp)) return new int[]{map.get(comp), i};</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="d"> <code>map.put(nums[i], i);</code></label>
+          <label class="opt"><input type="checkbox" name="q3" value="e"> <code>map.add(nums[i], i);</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">4) Group Anagrams (HashMap + ArrayList + String)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q4" value="a"> <code>HashMap&lt;String, ArrayList&lt;String&gt;&gt; map = new HashMap&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="b"> <code>char[] ch = s.toCharArray();</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="c"> <code>Arrays.sort(ch);</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="d"> <code>map.get(key).add(s);</code></label>
+          <label class="opt"><input type="checkbox" name="q4" value="e"> <code>ch.length()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">5) Top K Frequent Elements (HashMap + PriorityQueue)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q5" value="a"> <code>PriorityQueue&lt;Integer&gt; pq = new PriorityQueue&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="b"> <code>pq.offer(num);</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="c"> <code>pq.poll();</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="d"> <code>pq.size()</code></label>
+          <label class="opt"><input type="checkbox" name="q5" value="e"> <code>pq.put(num);</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">6) Product of Array Except Self (Array syntax)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q6" value="a"> <code>int[] res = new int[nums.length];</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="b"> <code>nums.length</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="c"> <code>res[i] = prefix;</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="d"> <code>int[] res = new int(nums.length);</code></label>
+          <label class="opt"><input type="checkbox" name="q6" value="e"> <code>nums.size()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">7) Encode and Decode Strings (String + StringBuilder + ArrayList)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q7" value="a"> <code>StringBuilder sb = new StringBuilder();</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="b"> <code>sb.append(s.length()).append('#').append(s);</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="c"> <code>ArrayList&lt;String&gt; out = new ArrayList&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="d"> <code>str.substring(l, r)</code></label>
+          <label class="opt"><input type="checkbox" name="q7" value="e"> <code>sb.toString</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">8) Longest Consecutive Sequence (HashSet)</div>
+          <div class="sub">NeetCode 150 | Arrays &amp; Hashing</div>
+          <label class="opt"><input type="checkbox" name="q8" value="a"> <code>HashSet&lt;Integer&gt; set = new HashSet&lt;&gt;();</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="b"> <code>set.contains(n - 1)</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="c"> <code>while (set.contains(curr + 1)) curr++;</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="d"> <code>set.has(n)</code></label>
+          <label class="opt"><input type="checkbox" name="q8" value="e"> <code>set.size()</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">9) Valid Palindrome (String methods)</div>
+          <div class="sub">NeetCode 150 | Two Pointers</div>
+          <label class="opt"><input type="checkbox" name="q9" value="a"> <code>s.charAt(i)</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="b"> <code>s.length()</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="c"> <code>Character.toLowerCase(s.charAt(i))</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="d"> <code>s[i]</code></label>
+          <label class="opt"><input type="checkbox" name="q9" value="e"> <code>s.substring(l, r)</code></label>
+        </div>
+
+        <div class="q">
+          <div class="title">10) Two Sum II (Input Array Sorted)</div>
+          <div class="sub">NeetCode 150 | Two Pointers</div>
+          <label class="opt"><input type="checkbox" name="q10" value="a"> <code>numbers.length</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="b"> <code>int sum = numbers[l] + numbers[r];</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="c"> <code>return new int[]{l + 1, r + 1};</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="d"> <code>return [l, r];</code></label>
+          <label class="opt"><input type="checkbox" name="q10" value="e"> <code>numbers.size()</code></label>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="submitBtn">Submit Page 1</button>
+          <a class="btn" href="java-quiz-page2.html">Go to Page 2</a>
+          <a class="btn" href="index.html">Back to Home</a>
+        </div>
+      </form>
+
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <script>
+    const answerKey = {
+      q1: ["a", "b", "d"],
+      q2: ["a", "b", "c"],
+      q3: ["a", "b", "c", "d"],
+      q4: ["a", "b", "c", "d"],
+      q5: ["a", "b", "c", "d"],
+      q6: ["a", "b", "c"],
+      q7: ["a", "b", "c", "d"],
+      q8: ["a", "b", "c", "e"],
+      q9: ["a", "b", "c", "e"],
+      q10: ["a", "b", "c"]
+    };
+
+    function selectedValues(name) {
+      return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value).sort();
+    }
+
+    function isExactMatch(a, b) {
+      if (a.length !== b.length) return false;
+      for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+      return true;
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      let score = 0;
+      let attempted = 0;
+      for (const q in answerKey) {
+        const sel = selectedValues(q);
+        if (sel.length > 0) attempted++;
+        if (isExactMatch(sel, [...answerKey[q]].sort())) score++;
+
+        const labels = document.querySelectorAll(`input[name="${q}"]`);
+        labels.forEach((input) => {
+          const opt = input.closest(".opt");
+          opt.classList.remove("user-selected", "correct");
+          if (input.checked) opt.classList.add("user-selected");
+          if (answerKey[q].includes(input.value)) opt.classList.add("correct");
+        });
+      }
+      document.getElementById("result").textContent = `Score: ${score}/10 (exact-match scoring). Attempted: ${attempted}/10`;
+    });
+
+    document.querySelectorAll(".q").forEach((block) => {
+      const title = block.querySelector(".title");
+      const m = title && title.textContent.match(/^(\d+)\)/);
+      if (m) block.id = `q-${m[1]}`;
+    });
+    if (location.hash.startsWith("#q-")) {
+      const target = document.querySelector(location.hash);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  </script>
+</body>
+</html>
