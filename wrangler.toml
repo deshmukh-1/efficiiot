@@ -1,0 +1,7 @@
+# Minimal Pages config (safe with Git deploy — no D1 placeholder).
+# Build: leave empty in dashboard. Output: . (repo root)
+# Do not use `wrangler deploy` for this site.
+
+name = "efficiiot"
+compatibility_date = "2025-05-01"
+pages_build_output_dir = "."
