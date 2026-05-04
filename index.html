@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Efficient Think Spaces — Online Study Library</title>
   <meta name="description" content="Efficient Think Spaces is an online study library with accountability mentors, peer groups, and focused sessions." />
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=70" />
+  <link rel="preload" as="image" href="assets/images/hero.jpg" />
   <style>
     body {
       margin: 0;
@@ -20,7 +18,7 @@
     header {
       background:
         linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat;
+        url('assets/images/hero.jpg') center/cover no-repeat;
       background-color: #26304a;
       padding: 120px 20px;
       text-align: center;
@@ -121,6 +119,25 @@
     .quiz-link:hover {
       background: #1f2937;
     }
+
+    .contact-direct {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      color: #374151;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .contact-direct a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+
+    .contact-direct a:hover {
+      text-decoration: underline;
+    }
+
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
       outline: 3px solid #93c5fd;
       outline-offset: 2px;
@@ -149,13 +166,13 @@
     <h2>Why Choose Us?</h2>
     <div class="features">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=900&q=75" alt="Focused Study" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <img src="assets/images/focused-study.jpg" alt="Focused Study" loading="lazy" decoding="async">
         <h3>Stay Motivated</h3>
         <p>Studying or working from home can be isolating and demotivating. Our group video sessions recreate the \"library feel\" with supportive peers.</p>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=900&q=75" alt="Mentorship" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <img src="assets/images/mentorship.jpg" alt="Mentorship" loading="lazy" decoding="async">
         <h3>Dedicated Accountability Mentor</h3>
         <p>Each session begins with a 5-minute ritual guided by your mentor—someone who has completed higher education and truly understands the struggle.</p>
       </div>
@@ -163,19 +180,19 @@
       
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=75" alt="Community" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <img src="assets/images/community.jpg" alt="Community" loading="lazy" decoding="async">
         <h3>Community of Consistent Learners</h3>
         <p>Join a regular group of motivated individuals who show up every day—your virtual group of study partners.</p>
       </div>
 	  
 	  <div class="card">
-        <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=900&q=75" alt="Data privacy and secure sessions" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <img src="assets/images/data-privacy.jpg" alt="Data privacy and secure sessions" loading="lazy" decoding="async">
         <h3>Data Privacy</h3>
         <p>You can choose to stay anonymous as you regularly do. No data storage on our part.</p>
       </div>
 	  
 	  <div class="card">
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=900&q=75" alt="Experienced Indian women mentor" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+    <img src="assets/images/mentor-women.jpg" alt="Experienced Indian women mentor" loading="lazy" decoding="async">
     
     <h3>Personalized Mentorship for Female Students</h3>
     <p>Opt for a dedicated woman mentor to foster a safe, comfortable, and meaningful learning connection.</p>
@@ -185,10 +202,16 @@
 
   <section class="section" id="contact">
     <h2>Enquiry & Contact</h2>
+    <p class="contact-direct">
+      You can also reach us at
+      <a href="mailto:info@efficiiot.com">info@efficiiot.com</a>
+      or
+      <a href="tel:+917042545507">+91 7042545507</a>.
+    </p>
     <form id="contactForm">
   <input type="text" id="username" placeholder="Your Name" required>
   <input type="email" id="email" placeholder="Your Email" required>
-  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
+  <input type="text" id="hp_company_url" name="hp_company_url" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true">
   <textarea id="message" rows="6" placeholder="Your last Education Level, Your Enquiry" required></textarea>
 
   <button type="submit">Send Message</button>
@@ -202,13 +225,13 @@
     const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const msg = document.getElementById("message").value;
-    const website = document.getElementById("website").value;
+    const hp = document.getElementById("hp_company_url").value;
 
     const payload = {
       username,
       email,
       message: msg,
-      website,
+      website: hp,
       startedAt: formLoadedAt
     };
 
@@ -218,14 +241,27 @@
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
-    }).then(res => {
-      if (res.ok) {
-        alert("Message sent successfully!");
-        document.getElementById("contactForm").reset();
-      } else {
-        alert("Error sending message.");
-      }
-    });
+    })
+      .then(async (res) => {
+        if (res.ok) {
+          alert("Message sent successfully!");
+          document.getElementById("contactForm").reset();
+          return;
+        }
+        let detail = res.statusText || "Unknown error";
+        try {
+          const data = await res.json();
+          if (data && data.error) detail = data.error;
+        } catch (_) {}
+        if (res.status === 404) {
+          detail =
+            "Contact API not found. Deploy via Cloudflare Pages (Git) with Functions enabled, not static-only upload.";
+        }
+        alert("Could not send: " + detail);
+      })
+      .catch(() => {
+        alert("Network error — check connection or that the site is deployed with /api/contact available.");
+      });
   });
 </script>
 
